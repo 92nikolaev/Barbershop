@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Barbershop</display-name>
+  <welcome-file-list>
+    <welcome-file>index</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>Controller</display-name>
+    <servlet-name>Controller</servlet-name>
+    <servlet-class>by.nikolaev.ilya.barbershop.controller.Controller</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Controller</servlet-name>
+    <url-pattern>/controller</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>registration-page</servlet-name>
+    <jsp-file>/page/registration.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>registration-page</servlet-name>
+    <url-pattern>/registration</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>price-list-page</servlet-name>
+    <jsp-file>/page/price-list.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>price-list-page</servlet-name>
+    <url-pattern>/price-list</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>cabinet-page</servlet-name>
+    <jsp-file>/page/cabinet.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cabinet-page</servlet-name>
+    <url-pattern>/cabinet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>index-page</servlet-name>
+    <jsp-file>/page/index.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>index-page</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+</web-app>
