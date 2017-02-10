@@ -1,20 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="../pagehelp/localization.jspf" %>
-
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
 		<meta charset="utf-8">
-		<title>Barber shop</title>
+		<title>Barber shop Registration</title>
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&amp;subset=cyrillic">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
-	<body>
-		<header class="main-header">
+	<body class="inner-page">
+		<header class="main-header"> 
 				<div class="container clearfix">
 					<nav class="main-navigation">
+						<a class="logo-inner" href="index">
+							<img src="img/loggo-inner.png" width="111" height="24" alt="Borodinski">
+						</a>
 						<ul>						
 							<li>
 								<a href="#">${navigation_Information}</a>
@@ -33,105 +35,44 @@
 							</li>
 						</ul>	
 					</nav>
+					
 					<div class="user-block">
+					
 						<c:if test="${sessionScope.logged == null}">
 							<a class="login" href="#">${navigation_signIn}</a>
 						</c:if>
 						<c:if test="${sessionScope.logged == true}">
-							<a class="login1" href="cabinet">
+						<form action="controller" method="post">
+							<button class="btn exit" type="submit" name="command" value="signout">Выход</button>
+						</form>
+							<a class="login1" href="#">
 								<c:out value="${user.name}"></c:out>
 							</a>
 						</c:if>
-						<form action="controller" method="post">
-							<input type="hidden" name="command" value="localization" />
-							<button class="rus-localization" type="submit" name="local" value="ru"></button>
-							<button class="us-localization" type="submit" name="local" value="en"></button>
-						</form>
 					</div>
 				</div>
 		</header>
 		<main class="container">
-			<div class="index-logo">
-				<img src="img/index-logo.png" width="368" height="204" alt="Барбершоп <<Borodinski>>">	
+		<div class="inner-page-title">
+			<h1>Регистрация</h1>
+			<ul class="breadcrumbs">
+				<li>
+					<a href="index">Главная</a>
+				</li>
+				<li class="current">
+					ERROR
+				</li>			
+			</ul>
+		</div>
+		<div class="inner-content">
+			<div class="big-heading">
+				<h2>ERROR</h2>
 			</div>
-			<section class="features clearfix">
-				<div class="features-item">
-					<b class="features-name">${first_header}</b>
-					<p>${first_features}</p>
-				</div>
-				<div class="features-item">
-					<b class="features-name">${second_header}</b>
-					<p>${second_features}</p>
-				</div>
-				<div class="features-item">
-					<b class="features-name">${third_header}</b>
-					<p>${third_features}</p>
-				</div>
-			</section>	
-				<div class="index-content clearfix">
-					<div class="index-content-left">
-						<h2 class="index-content-title">${content_title_left}</h2>
-						<ul class="news-preview">
-							<li>
-								<p>
-									Нам наконец завезли Ягермайстер! Теперь вы можете
-									пропустить стаканьчик во время стрижки
-								</p>
-								<time datetime="2017-01-11">11 Января</time>
-							</li>
-							<li>
-								<p>
-									В нашей команде пополнение, Борис "Бритва" Стригунец, обладатель
-									множества титулов и наград пополнил наши стройные ряды
-								</p>
-								<time datetime="2017-01-05">5 Января</time>
-							</li>
-						</ul>
-						<a class="btn" href="#">${content_left_btn}</a>
-					</div>
-					<div class="index-content-right">
-						<h2 class="index-content-title">${content_title_right}</h2>
-						<div class="gallery">
-							<figure class="gallery-content">
-								<img src="img/photo-1.jpg" width="286" height="164" alt="">
-							</figure>
-							<button class="btn gallery-prev" type="button">${btn_gallery_prev}</button>
-							<button class="btn gallery-next" type="button">${btn_gallery_next}</button>						
-						</div>
-					</div>
-				</div>
-				<div class="index-content clearfix">
-					<div class="index-content-left">
-						<h2 class="index-content-title">${content_title_left_inf}</h2>
-						<p>
-							Барбершоп Borodinski <br>
-							Адрес: г.Минск, Валерьяново д. 18<br>
-							Телефон: +375(29)555-55-22
-						</p>	
-						<p>
-							Время работы:<br>
-							пн - пт: c 10:00 до 22:00<br>
-							сб - вс: с 10:00 до 19:00
-						</p>
-						<a class="btn js-open-map" href="#">${content_left_inf_btn_where}</a>
-						<a class="btn" href="#">${content_left_inf_btn_feedback}</a>
-					</div>	
-					<div class="index-content-right">
-						<h2 class="index-content-title">${content_title_right_registr}</h2>
-						<p>
-						Укажите желаемую дату и время
-						и мы свяжемся с вами для подтверждения брони
-						</p>
-						<form class="appointment-form" action="controller" method="post">
-							<input type="date" name="record_date" placeholder="Дата" required="required">
-							<input type="time" name="record_time" placeholder="Время" required="required">
-							<input type="text" name="record_name" value="${user.name}" placeholder="Имя" required="required">
-							<input type="tel" name="record_phone"  placeholder="Телефон" required="required">
-							<button class="btn" type="submit" name="command" value="record">${content_left_inf_btn_register}</button>
-						</form>
-					</div>	
-				</div>		
+			</div>
+			
 		</main>
+		
+		
 		<footer class="main-footer">
 			<div class="container clearfix">
 				<section class="footer-contacts">
@@ -183,5 +124,7 @@
 		<div class="modal-overlay"></div>
 		
 		<script src="js/javascript.js"></script>
+		
 	</body>
+	
 </html>

@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="css/style.css">
 		<title>Personal Area</title>
 </head>
-<body>
+<body class="inner-page">
 	<header class="main-header"> 
 				<div class="container clearfix">
 					<nav class="main-navigation">
@@ -38,68 +38,59 @@
 							</li>
 						</ul>	
 					</nav>
+					
 					<div class="user-block">
+					
 						<c:if test="${sessionScope.logged == null}">
 							<a class="login" href="#">${navigation_signIn}</a>
 						</c:if>
 						<c:if test="${sessionScope.logged == true}">
+						<form action="controller" method="post">
+							<button class="btn exit" type="submit" name="command" value="signout">Выход</button>
+						</form>
 							<a class="login1" href="#">
 								<c:out value="${user.name}"></c:out>
 							</a>
 						</c:if>
-						<form action="controller" method="post">
-							<input type="hidden" name="command" value="localization" />
-							<button class="rus-localization" type="submit" name="local" value="ru"></button>
-							<button class="us-localization" type="submit" name="local" value="en"></button>
-						</form>
 					</div>
 				</div>
 		</header>
 		
 		
-		
 		<main class="container">
 		<div class="inner-page-title">
-			<h1>Прайс-лист</h1>
 			<ul class="breadcrumbs">
 				<li>
 					<a href="index">Главная</a>
 				</li>
 				<li class="current">
-					Прайс-лист
+					Личный Кабинет
 				</li>			
 			</ul>
 		</div>
 		<div class="inner-content">
 			<div class="big-heading">
-				<h2>Истинно мужская классика</h2>
+				<h2>Личный Кабинет</h2>
 			</div>
 			<div class="inner-columns clearfix">
 				<div class="inner-column-left">
 					<ul class="custom-list-1">
-					<h2>Мы используем только лучшие средства</h2>
-						<li>Baxter of California</li>
-						<li>Mr Natty</li>
-						<li>Suavecito</li>
-						<li>Malin+Goetz</li>				
+					<h2>Личные Даннаые</h2>
+						<li>Имя Фамилия : ${user.name} ${user.surname}</li>
+						<li>Email : ${user.email}</li>
+						<li>Login : ${user.login}</li>
+						<li>Дата полсдедней стрижки : </li>				
 					</ul>
 				</div>
 				<div class="inner-column-right">	
-					<h2>Цены на услуги наших мастеров:</h2>
-					<table class="price-table">
-						<tr>
-							<td>Стрижка</td>
-							<td>50 р.</td>
-						</tr>
-						<tr>
-							<td>Стрижка бороды</td>
-							<td>20 р.</td>
-						</tr>
-						<tr>
-							<td>Накрутка усов</td>
-							<td>15 р.</td>
-						</tr>
-					</table>
+					<h2 class="index-content-title">${content_title_right}</h2>
+						<div class="gallery">
+							<figure class="gallery-content">
+								<img src="img/photo-1.jpg" width="286" height="164" alt="">
+							</figure>
+							<button class="btn gallery-prev" type="button">${btn_gallery_prev}</button>
+							<button class="btn gallery-next" type="button">${btn_gallery_next}</button>						
+						</div>
 				</div>	
 			</div>
 			<div class="inner-columns clearfix">

@@ -36,5 +36,8 @@
 	<fmt:message bundle="${loc}" key="footer_contact_forsth" var="footer_contacts_forsth" />
 	<fmt:message bundle="${loc}" key="footer_social" var="footer_social" />
 	<fmt:message bundle="${loc}" key="footer_copyright" var="footer_copyright" />
+	<fmt:message bundle="${loc}" key="page_registration_registr" var="registration_registr" />
+	<fmt:message bundle="${loc}" key="registration_content_headr" var="registration_headr" />
+	
 	
 </html>	

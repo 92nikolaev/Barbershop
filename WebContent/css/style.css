@@ -107,7 +107,7 @@ body {
 }
 .user-block{
 	position: relative;
-	 max-width: 140px;
+	 max-width: 160px;
 	float: right;
 	
 	/* только для оформления сетки 
@@ -137,6 +137,25 @@ body {
 	line-height: 20px;
 	vertical-align: top;
 }
+.exit {
+	position: absolute;
+	top: 0px;
+	left: -70px;
+	display: inline-block;
+	margin-top: 15px;
+	padding: 25px 15px;
+	padding-left: 50px;
+	text-decoration: none;
+	color: #ffffff;
+	font-size: 14px;
+	line-height: 20px;
+	vertical-align: top;
+}
+.user-block .btn:hover, .btn:active {
+	background-color: #242424;
+}
+
+
 
 .login:hover {
 	background: #242424;
@@ -837,7 +856,6 @@ body {
 	
 	background: rgba(0,0,0,0.5);
 }
-
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<   FOR JAVASCRIPT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 

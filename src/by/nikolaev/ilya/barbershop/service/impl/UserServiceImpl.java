@@ -8,20 +8,20 @@ import by.nikolaev.ilya.barbershop.service.UserService;
 import by.nikolaev.ilya.barbershop.service.exeption.ServiceException;
 import by.nikolaev.ilya.barbershop.service.validation.ValidationDate;
 
-public class UserServiceImpl implements UserService  {
+public class UserServiceImpl implements UserService {
 
 	@Override
 	public User singinUser(User user) throws ServiceException {
-		if((user.getLogin() != null) && (user.getPassword() != null)){
+		if ((user.getLogin() != null) && (user.getPassword() != null)) {
 			DAOFactory daoFactory = DAOFactory.getInstance();
 			UserDAO userDAO = daoFactory.getUserDAO();
-			
-			try{
+
+			try {
 				user = userDAO.singinUser(user);
-			}catch (DAOException ex) {
+			} catch (DAOException ex) {
 				throw new ServiceException();
 			}
-		}else{
+		} else {
 			throw new ServiceException("You did not write incorecet login or password");
 		}
 		return user;
@@ -29,27 +29,27 @@ public class UserServiceImpl implements UserService  {
 
 	@Override
 	public User signupUser(User user, String securPasword) throws ServiceException {
-		
-		if(!ValidationDate.validationRegisterDate(user.getName(), user.getSurname(), user.getEmail(), user.getLogin(), user.getPassword(), securPasword)){
+
+		if (!ValidationDate.validationRegisterDate(user.getName(), user.getSurname(), user.getEmail(), user.getLogin(), user.getPassword(), securPasword)) {
 			user = null;
-			
-		}else {
+
+		} else {
 			DAOFactory daoFactory = DAOFactory.getInstance();
 			UserDAO userDAO = daoFactory.getUserDAO();
 			try {
-			user = userDAO.signupUser(user, securPasword);
-			}catch (DAOException ex) {
+				user = userDAO.signupUser(user, securPasword);
+			} catch (DAOException ex) {
 				throw new ServiceException();
 			}
-			
+
 		}
 		return user;
 	}
 
-	@Override
-	public User EditProfile(User user) throws ServiceException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	// @Override
+	// public User EditProfile(User user) throws ServiceException {
+	// // TODO Auto-generated method stub
+	// return null;
+	// }
 
 }

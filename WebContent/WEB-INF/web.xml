@@ -40,6 +40,26 @@
     <url-pattern>/cabinet</url-pattern>
   </servlet-mapping>
   
+  
+   <servlet>
+    <servlet-name>record-page</servlet-name>
+    <jsp-file>/page/record-page.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>record-page</servlet-name>
+    <url-pattern>/record-page</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>error-page</servlet-name>
+    <jsp-file>/page/error.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>error-page</servlet-name>
+    <url-pattern>/error</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet>
     <servlet-name>index-page</servlet-name>
     <jsp-file>/page/index.jsp</jsp-file>
