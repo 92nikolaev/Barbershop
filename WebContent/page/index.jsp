@@ -20,7 +20,7 @@
 								<a href="#">${navigation_Information}</a>
 							</li>
 							<li>
-								<a href="#">${navigation_news}</a>
+								<a href="controller?command=showAllNews">${navigation_news}</a>
 							</li>
 							<li>
 								<a href="price-list">${navigation_price}</a>
@@ -87,7 +87,7 @@
 								<time datetime="2017-01-05">5 Января</time>
 							</li>
 						</ul>
-						<a class="btn" href="#">${content_left_btn}</a>
+						<a class="btn" href="controller?command=showAllNews">${content_left_btn}</a>
 					</div>
 					<div class="index-content-right">
 						<h2 class="index-content-title">${content_title_right}</h2>

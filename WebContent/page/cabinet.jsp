@@ -56,7 +56,10 @@
 				</div>
 		</header>
 		
-		
+			<form action="controller" method="post">
+			
+		<button  type="submit" name="command" value="show_users">Show</button>
+			</form>
 		<main class="container">
 		<div class="inner-page-title">
 			<ul class="breadcrumbs">

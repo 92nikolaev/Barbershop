@@ -626,6 +626,32 @@ body {
 	display inline-block;
 	text-align: center;
 }
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ADMIN >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+.admin_table { 
+    width: 100%; /* Ширина таблицы */
+    border-collapse: collapse; /* Отображать только одинарные линии */
+   }
+ .admin_table th { 
+    text-align: center; /* Выравнивание по center краю */
+    background: #ccc; /* Цвет фона ячеек */
+    padding: 5px; /* Поля вокруг содержимого ячеек */
+    border: 1px solid black; /* Граница вокруг ячеек */
+   }
+.admin_table td { 
+	text-align: center;  /* Выравнивание по center */
+    padding: 5px; /* Поля вокруг содержимого ячеек */
+    border: 1px solid black; /* Граница вокруг ячеек */
+   }
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PAGE-NEWS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+.inner-page-news h2{
+	margin-top: 50px;	
+}
+
+
 /* Всплывающая форма */
 
 
@@ -856,6 +882,9 @@ body {
 	
 	background: rgba(0,0,0,0.5);
 }
+
+
+
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<   FOR JAVASCRIPT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 

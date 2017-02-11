@@ -3,11 +3,13 @@ package by.nikolaev.ilya.barbershop.command;
 import java.util.HashMap;
 import java.util.Map;
 
+import by.nikolaev.ilya.barbershop.command.administration.ShowUserList;
 import by.nikolaev.ilya.barbershop.command.implRecord.RecordUser;
 import by.nikolaev.ilya.barbershop.command.implUser.Registration;
 import by.nikolaev.ilya.barbershop.command.implUser.SignInUser;
 import by.nikolaev.ilya.barbershop.command.implUser.SignOutUser;
 import by.nikolaev.ilya.barbershop.command.localization.Localization;
+import by.nikolaev.ilya.barbershop.command.news.ShowAllNews;
 
 public class CommandHelper {
 	private static CommandHelper instance;
@@ -26,6 +28,9 @@ public class CommandHelper {
 		commands.put(NameParametr.CMD_LOCALIZATION, new Localization());
 		commands.put(NameParametr.CMD_RECORD, new RecordUser());
 		commands.put(NameParametr.CMD_SIGN_OUT, new SignOutUser());
+		commands.put(NameParametr.CMD_SHOW_USER_LIST, new ShowUserList());
+		commands.put(NameParametr.CMD_SHOW_NEWS, new ShowAllNews());
+
 	}
 
 	public Command getCommand(String commandName) {

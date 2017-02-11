@@ -59,6 +59,23 @@
     <url-pattern>/error</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+    <servlet-name>list_user</servlet-name>
+    <jsp-file>/page/listUsers.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>list_user</servlet-name>
+    <url-pattern>/list_user</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>allnews</servlet-name>
+    <jsp-file>/page/news.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>allnews</servlet-name>
+    <url-pattern>/news</url-pattern>
+  </servlet-mapping>
   
   <servlet>
     <servlet-name>index-page</servlet-name>

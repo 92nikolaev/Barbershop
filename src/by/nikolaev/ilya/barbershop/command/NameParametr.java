@@ -22,7 +22,11 @@ public class NameParametr {
 	public static final String CMD_LOCALIZATION = "localization";
 	public static final String CMD_RECORD = "record";
 	public static final String CMD_SIGN_OUT = "signout";
+	public static final String CMD_SHOW_NEWS = "showAllNews";
 
 	public static final String PRM_COMMAND = "command";
+
+	// CommandHelper Admin
+	public static final String CMD_SHOW_USER_LIST = "show_users";
 
 }

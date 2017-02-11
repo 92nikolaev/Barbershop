@@ -21,11 +21,11 @@
 							<li>
 								<a href="#">${navigation_Information}</a>
 							</li>
-							<li>
-								<a href="controller?command=showAllNews">${navigation_news}</a>
-							</li>
 							<li class="active">
-								<span>${navigation_price}</span>
+								<span>${navigation_news}</span>
+							</li>
+							<li>
+								<a href="price-list">${navigation_price}</a>
 							</li>
 							<li>
 								<a href="shop.html">${navigation_shop}</a>
@@ -54,65 +54,27 @@
 		
 		<main class="container">
 		<div class="inner-page-title">
-			<h1>Прайс-лист</h1>
+			<h1>Новости</h1>
 			<ul class="breadcrumbs">
 				<li>
 					<a href="index">Главная</a>
 				</li>
 				<li class="current">
-					Прайс-лист
+					Новости
 				</li>			
 			</ul>
 		</div>
-		<div class="inner-content">
-			<div class="big-heading">
-				<h2>Истинно мужская классика</h2>
-			</div>
-			<div class="inner-columns clearfix">
-				<div class="inner-column-left">
-					<ul class="custom-list-1">
-					<h2>Мы используем только лучшие средства</h2>
-						<li>Baxter of California</li>
-						<li>Mr Natty</li>
-						<li>Suavecito</li>
-						<li>Malin+Goetz</li>				
-					</ul>
-				</div>
-				<div class="inner-column-right">	
-					<h2>Цены на услуги наших мастеров:</h2>
-					<table class="price-table">
-						<tr>
-							<td>Стрижка</td>
-							<td>50 р.</td>
-						</tr>
-						<tr>
-							<td>Стрижка бороды</td>
-							<td>20 р.</td>
-						</tr>
-						<tr>
-							<td>Накрутка усов</td>
-							<td>15 р.</td>
-						</tr>
-					</table>
-				</div>	
-			</div>
-			<div class="inner-columns clearfix">
-				<h2>Несколько слов о нас:</h2>
-				<div class="inner-column-left">
-					<p>	
-						Наша парикмахерская заниается исключительно мужскими стрижками.
-						Стрижка каждого клиента для нас - это уникальная и продуманая до мелочей работа.
-						Мы не работаем на качество, мы делаем качество.
-					</p>
-				</div>
-				<div class="inner-column-right">
-					<p>
-						Наша мастерская расположена в центре города, поэтому стильную стрижку можно сделать в любое время, даже в обеденный перерыв.
-						Здесь вы можете погрузиться в удобную для вас атмосферу, чувствовать себя комфортно и свободно!
-					</p>
-				</div>
-			</div>	
+		<div class="news">
+			<c:forEach items="${sessionScope.news_list}" var = "news">
+				<section class=inner-page-news>
+					<h2>${news.title}</h2>
+					<time>${news.date}</time>
+					<p>${news.content}</p>
+				</section>
+			</c:forEach>
 		</div>
+		
+		
 		</main>
 		
 		<footer class="main-footer">

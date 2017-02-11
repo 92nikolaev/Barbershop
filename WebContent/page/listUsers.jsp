@@ -22,10 +22,10 @@
 								<a href="#">${navigation_Information}</a>
 							</li>
 							<li>
-								<a href="controller?command=showAllNews">${navigation_news}</a>
+								<a href="#">${navigation_news}</a>
 							</li>
-							<li class="active">
-								<span>${navigation_price}</span>
+							<li>
+								<a href="#">${navigation_price}</a>
 							</li>
 							<li>
 								<a href="shop.html">${navigation_shop}</a>
@@ -53,66 +53,44 @@
 		</header>
 		
 		<main class="container">
-		<div class="inner-page-title">
-			<h1>Прайс-лист</h1>
-			<ul class="breadcrumbs">
-				<li>
-					<a href="index">Главная</a>
-				</li>
-				<li class="current">
-					Прайс-лист
-				</li>			
-			</ul>
-		</div>
-		<div class="inner-content">
-			<div class="big-heading">
-				<h2>Истинно мужская классика</h2>
+			<div class="title">
+		  		<div>
+		  			<h2>Users list</h2>
+		  		</div>
+<!-- 		  		<div class="col-md-4"> -->
+<!-- 		  		<a href="administration"><button type="button" class="btn btn-default form-control">Balck to admin panel</button></a>  -->
+<!-- 		  		</div> -->
 			</div>
-			<div class="inner-columns clearfix">
-				<div class="inner-column-left">
-					<ul class="custom-list-1">
-					<h2>Мы используем только лучшие средства</h2>
-						<li>Baxter of California</li>
-						<li>Mr Natty</li>
-						<li>Suavecito</li>
-						<li>Malin+Goetz</li>				
-					</ul>
-				</div>
-				<div class="inner-column-right">	
-					<h2>Цены на услуги наших мастеров:</h2>
-					<table class="price-table">
-						<tr>
-							<td>Стрижка</td>
-							<td>50 р.</td>
-						</tr>
-						<tr>
-							<td>Стрижка бороды</td>
-							<td>20 р.</td>
-						</tr>
-						<tr>
-							<td>Накрутка усов</td>
-							<td>15 р.</td>
-						</tr>
-					</table>
-				</div>	
-			</div>
-			<div class="inner-columns clearfix">
-				<h2>Несколько слов о нас:</h2>
-				<div class="inner-column-left">
-					<p>	
-						Наша парикмахерская заниается исключительно мужскими стрижками.
-						Стрижка каждого клиента для нас - это уникальная и продуманая до мелочей работа.
-						Мы не работаем на качество, мы делаем качество.
-					</p>
-				</div>
-				<div class="inner-column-right">
-					<p>
-						Наша мастерская расположена в центре города, поэтому стильную стрижку можно сделать в любое время, даже в обеденный перерыв.
-						Здесь вы можете погрузиться в удобную для вас атмосферу, чувствовать себя комфортно и свободно!
-					</p>
-				</div>
-			</div>	
-		</div>
+		 	<table class="admin_table">
+		  		<thead>
+		      		<tr class="admin_table">
+		        		<th>id</th>
+		        		<th>Login</th>
+		        		<th>Name</th>
+		         		<th>Surname</th>		  
+		        		<th>Email</th>
+		        		<th>Action</th>	
+		      		</tr>
+		    	</thead>
+		    	
+				<c:forEach items="${sessionScope.user_list}" var = "user" >   
+		  			<tbody>
+		   				<tr class="admin_table">
+				        	<td>${user.id}</td>
+				        	<td>${user.login}</td>
+				        	<td>${user.name}</td>
+				      		<td>${user.surname}</td>
+				        	<td>${user.email}</td>
+				        	<td>
+				        		<form action="Controller" method="get"> 
+				        			<input type="hidden" name="command" value="status_and_level" />
+					        		<a data-toggle="tooltip" title="Lock/Unlock" data-placement="bottom"> <button type="submit" name="add_to_black_list" value="${user.id}" class="btn btn-default">Lock/Unlock</button></a> 
+					    		</form>
+					    	</td>
+		      			</tr>
+		    		</tbody>
+				</c:forEach>
+		  	</table>
 		</main>
 		
 		<footer class="main-footer">
