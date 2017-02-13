@@ -26,4 +26,22 @@ public class NewsServiceImpl implements NewsService {
 		return listNews;
 	}
 
+	@Override
+	public News addNews(News news) throws ServiceException {
+		if ((news.getTitle() != null) && (news.getContent() != null)) {
+			DAOFactory daoFactory = DAOFactory.getInstance();
+			NewsDAO newsDAO = daoFactory.getNewsDAO();
+
+			try {
+				news = newsDAO.addNews(news);
+			} catch (DAOException e) {
+				throw new ServiceException();
+			}
+		} else {
+			throw new ServiceException("You did not write incorecet Title or Content");
+		}
+
+		return news;
+	}
+
 }

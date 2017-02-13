@@ -9,6 +9,7 @@ import by.nikolaev.ilya.barbershop.command.implUser.Registration;
 import by.nikolaev.ilya.barbershop.command.implUser.SignInUser;
 import by.nikolaev.ilya.barbershop.command.implUser.SignOutUser;
 import by.nikolaev.ilya.barbershop.command.localization.Localization;
+import by.nikolaev.ilya.barbershop.command.news.AddNews;
 import by.nikolaev.ilya.barbershop.command.news.ShowAllNews;
 
 public class CommandHelper {
@@ -30,6 +31,7 @@ public class CommandHelper {
 		commands.put(NameParametr.CMD_SIGN_OUT, new SignOutUser());
 		commands.put(NameParametr.CMD_SHOW_USER_LIST, new ShowUserList());
 		commands.put(NameParametr.CMD_SHOW_NEWS, new ShowAllNews());
+		commands.put(NameParametr.CMD_ADD_NEWS, new AddNews());
 
 	}
 

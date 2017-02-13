@@ -44,7 +44,7 @@
 						<form action="controller" method="post">
 							<button class="btn exit" type="submit" name="command" value="signout">Выход</button>
 						</form>
-							<a class="login1" href="#">
+							<a class="login1" href="cabinet">
 								<c:out value="${user.name}"></c:out>
 							</a>
 						</c:if>
@@ -54,13 +54,13 @@
 		
 		<main class="container">
 		<div class="inner-page-title">
-			<h1>Новости</h1>
+			<h1>${content_title_left}</h1>
 			<ul class="breadcrumbs">
 				<li>
 					<a href="index">Главная</a>
 				</li>
 				<li class="current">
-					Новости
+					${content_title_left}
 				</li>			
 			</ul>
 		</div>

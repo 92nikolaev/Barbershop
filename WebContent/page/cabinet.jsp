@@ -25,7 +25,7 @@
 								<a href="#">${navigation_Information}</a>
 							</li>
 							<li>
-								<a href="#">${navigation_news}</a>
+								<a href="controller?command=showAllNews">${navigation_news}</a>
 							</li>
 							<li>
 								<a href="price-list">${navigation_price}</a>

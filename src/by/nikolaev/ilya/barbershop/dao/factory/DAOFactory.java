@@ -6,7 +6,7 @@ import by.nikolaev.ilya.barbershop.dao.UserDAO;
 import by.nikolaev.ilya.barbershop.dao.administration.AdministrationDAO;
 import by.nikolaev.ilya.barbershop.dao.administration.administrationDAOImpl.AdminDAOImpl;
 import by.nikolaev.ilya.barbershop.dao.impl.SQLRecordDAO;
-import by.nikolaev.ilya.barbershop.dao.impl.SQLShowAllNewsDAO;
+import by.nikolaev.ilya.barbershop.dao.impl.SQLNewsDAO;
 import by.nikolaev.ilya.barbershop.dao.impl.SQLUserDAO;
 
 public class DAOFactory {
@@ -14,7 +14,7 @@ public class DAOFactory {
 	private final UserDAO userDAO = new SQLUserDAO();
 	private final RecordDAO recordDAO = new SQLRecordDAO();
 	private final AdministrationDAO administrationDAO = new AdminDAOImpl();
-	private final NewsDAO newsDAO = new SQLShowAllNewsDAO();
+	private final NewsDAO newsDAO = new SQLNewsDAO();
 
 	private DAOFactory() {
 	}

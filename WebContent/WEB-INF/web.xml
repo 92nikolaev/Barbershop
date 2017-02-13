@@ -69,6 +69,15 @@
   </servlet-mapping>
   
   <servlet>
+    <servlet-name>record_news</servlet-name>
+    <jsp-file>/page/recordnews.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>record_news</servlet-name>
+    <url-pattern>/new_news</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>allnews</servlet-name>
     <jsp-file>/page/news.jsp</jsp-file>
   </servlet>
@@ -85,4 +94,27 @@
     <servlet-name>index-page</servlet-name>
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
+  
+ <!--_____________________________________admin __________________-->
+ <servlet>
+    <servlet-name>logination_admin</servlet-name>
+   		 <jsp-file>/page/superregistration.jsp</jsp-file>
+  	</servlet>
+ 	 <servlet-mapping>
+    	<servlet-name>logination_admin</servlet-name>
+    <url-pattern>/admin.do</url-pattern>
+ </servlet-mapping>
+ 
+
+  <servlet>
+    <servlet-name>superUser</servlet-name>
+    <jsp-file>/WEB-INF/adminPanel/superuser.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>superUser</servlet-name>
+    <url-pattern>/admin</url-pattern>
+  </servlet-mapping>
+ 
+
+ 
 </web-app>

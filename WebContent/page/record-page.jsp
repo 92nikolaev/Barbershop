@@ -22,7 +22,7 @@
 								<a href="#">${navigation_Information}</a>
 							</li>
 							<li>
-								<a href="#">${navigation_news}</a>
+								<a href="controller?command=showAllNews">${navigation_news}</a>
 							</li>
 							<li>
 								<a href="price-list">${navigation_price}</a>
@@ -45,7 +45,7 @@
 						<form action="controller" method="post">
 							<button class="btn exit" type="submit" name="command" value="signout">Выход</button>
 						</form>
-							<a class="login1" href="#">
+							<a class="login1" href="cabinet">
 								<c:out value="${user.name}"></c:out>
 							</a>
 						</c:if>
