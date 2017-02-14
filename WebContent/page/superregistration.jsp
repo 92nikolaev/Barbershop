@@ -19,8 +19,8 @@
 			<h2 class="modal-content-title">Личтный кабинет</h2>
 			<p>Введите свой логин и пароль</p>
 			<form class="login-form" action="controller" method="post">
-				<input class="icon-user" type="text" name="user_login" placeholder="Логин" required="required">
-				<input class="icon-password" type="password" name="user_password" placeholder="Пароль" required="required">
+				<input class="icon-user" type="text" name="admin_login" placeholder="Логин" required="required">
+				<input class="icon-password" type="password" name="admin_password" placeholder="Пароль" required="required">
 				<button class="btn" type="submit" name="command" value="signinAdmin">Войти</button>
 			</form>
 		</div>

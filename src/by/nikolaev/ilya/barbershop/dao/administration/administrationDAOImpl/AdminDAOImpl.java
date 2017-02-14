@@ -1,10 +1,13 @@
 package by.nikolaev.ilya.barbershop.dao.administration.administrationDAOImpl;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import by.nikolaev.ilya.barbershop.bean.Admin;
 import by.nikolaev.ilya.barbershop.bean.User;
 import by.nikolaev.ilya.barbershop.dao.ConnectionData.ConnectionDataSource;
 import by.nikolaev.ilya.barbershop.dao.administration.AdministrationDAO;
@@ -41,6 +44,39 @@ public class AdminDAOImpl implements AdministrationDAO {
 		}
 
 		return listUser;
+	}
+
+	@Override
+	public Admin signInAdmin(Admin admin) throws DAOException {
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		Connection connection = null;
+
+		try {
+			connection = ConnectionDataSource.getConnection();
+			preparedStatement = connection.prepareStatement("select * from superUser where admin_login=? and admin_password=?");
+			preparedStatement.setString(1, admin.getLogin());
+			preparedStatement.setString(2, admin.getPassword());
+
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				admin = new Admin();
+				admin.setId(resultSet.getInt(1));
+				admin.setName(resultSet.getString(2));
+				admin.setSurname(resultSet.getString(3));
+				admin.setLogin(resultSet.getString(4));
+				admin.setStatus(resultSet.getBoolean(6));
+
+			}
+
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		} catch (Exception e) {
+			throw new DAOException(e);
+		}
+
+		return admin;
 	}
 
 }

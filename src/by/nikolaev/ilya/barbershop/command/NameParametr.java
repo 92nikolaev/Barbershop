@@ -33,8 +33,12 @@ public class NameParametr {
 	// Servlet
 	public static final String PRM_COMMAND = "command";
 
-	// CommandHelper Admin
+	// Admin cmd
 	public static final String CMD_SHOW_USER_LIST = "show_users";
 	public static final String CMD_SIGN_IN_ADMIN = "signinAdmin";
+
+	// admin prm
+	public static final String PRM_ADMIN_LOGIN = "admin_login";
+	public static final String PRM_ADMIN_PASSWORD = "admin_password";
 
 }

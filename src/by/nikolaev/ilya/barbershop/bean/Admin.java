@@ -6,10 +6,20 @@ public class Admin implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	private int id;
 	private String name;
+	private String surname;
 	private String login;
 	private String password;
 	private boolean status;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
@@ -41,6 +51,14 @@ public class Admin implements Serializable {
 
 	public void setStatus(boolean status) {
 		this.status = status;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
 }

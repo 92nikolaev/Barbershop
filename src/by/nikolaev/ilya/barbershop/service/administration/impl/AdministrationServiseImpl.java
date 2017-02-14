@@ -2,6 +2,7 @@ package by.nikolaev.ilya.barbershop.service.administration.impl;
 
 import java.util.ArrayList;
 
+import by.nikolaev.ilya.barbershop.bean.Admin;
 import by.nikolaev.ilya.barbershop.bean.User;
 import by.nikolaev.ilya.barbershop.dao.administration.AdministrationDAO;
 import by.nikolaev.ilya.barbershop.dao.exception.DAOException;
@@ -25,6 +26,23 @@ public class AdministrationServiseImpl implements AdministrationService {
 		}
 
 		return listUser;
+	}
+
+	@Override
+	public Admin SignInAdmin(Admin admin) throws ServiceException {
+		if ((admin.getLogin() != null) && (admin.getPassword() != null)) {
+			DAOFactory daoFactory = DAOFactory.getInstance();
+			AdministrationDAO administrationDAO = daoFactory.getAdministrationDAO();
+
+			try {
+				admin = administrationDAO.signInAdmin(admin);
+			} catch (DAOException e) {
+				throw new ServiceException();
+			}
+		} else {
+			throw new ServiceException("You did not write incorecet login or password");
+		}
+		return admin;
 	}
 
 }

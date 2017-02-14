@@ -7,5 +7,6 @@ public class NamePage {
 	public static final String LIST_USERS_PAGE = "/list_user";
 	public static final String NEWS_PAGE = "/news";
 	public static final String ADD_NEWS_PAGE = "/new_news";
+	public static final String SIGN_IN_ADMIN_PAGE = "/admin.do";
 	public static final String ADMIN_PAGE = "/admin";
 }
