@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 import by.nikolaev.ilya.barbershop.bean.User;
 import by.nikolaev.ilya.barbershop.command.Command;
 import by.nikolaev.ilya.barbershop.command.NameParametr;
-import by.nikolaev.ilya.barbershop.controller.NamePage;
 import by.nikolaev.ilya.barbershop.service.ServiceFactory;
 import by.nikolaev.ilya.barbershop.service.UserService;
 
@@ -32,7 +31,7 @@ public class Registration implements Command {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
 				session.setAttribute("logged", true);
-				page = NamePage.INDEX_PAGE;
+				page = "index.jsp";
 			}else{
 				page = "error.jsp";
 			}

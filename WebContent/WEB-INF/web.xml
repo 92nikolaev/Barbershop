@@ -30,62 +30,6 @@
     <servlet-name>price-list-page</servlet-name>
     <url-pattern>/price-list</url-pattern>
   </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>cabinet-page</servlet-name>
-    <jsp-file>/page/cabinet.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>cabinet-page</servlet-name>
-    <url-pattern>/cabinet</url-pattern>
-  </servlet-mapping>
-  
-  
-   <servlet>
-    <servlet-name>record-page</servlet-name>
-    <jsp-file>/page/record-page.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>record-page</servlet-name>
-    <url-pattern>/record-page</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>error-page</servlet-name>
-    <jsp-file>/page/error.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>error-page</servlet-name>
-    <url-pattern>/error</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>list_user</servlet-name>
-    <jsp-file>/page/listUsers.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>list_user</servlet-name>
-    <url-pattern>/list_user</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>record_news</servlet-name>
-    <jsp-file>/page/recordnews.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>record_news</servlet-name>
-    <url-pattern>/new_news</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>allnews</servlet-name>
-    <jsp-file>/page/news.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>allnews</servlet-name>
-    <url-pattern>/news</url-pattern>
-  </servlet-mapping>
-  
   <servlet>
     <servlet-name>index-page</servlet-name>
     <jsp-file>/page/index.jsp</jsp-file>
@@ -94,27 +38,4 @@
     <servlet-name>index-page</servlet-name>
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
-  
- <!--_____________________________________admin __________________-->
- <servlet>
-    <servlet-name>logination_admin</servlet-name>
-   		 <jsp-file>/page/superregistration.jsp</jsp-file>
-  	</servlet>
- 	 <servlet-mapping>
-    	<servlet-name>logination_admin</servlet-name>
-    <url-pattern>/admin.do</url-pattern>
- </servlet-mapping>
- 
-
-  <servlet>
-    <servlet-name>superUser</servlet-name>
-    <jsp-file>/WEB-INF/adminPanel/superuser.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>superUser</servlet-name>
-    <url-pattern>/admin</url-pattern>
-  </servlet-mapping>
- 
-
- 
 </web-app>

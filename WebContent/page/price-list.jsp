@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@include file="../pagehelp/localization.jspf" %>
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
@@ -11,7 +9,7 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body class="inner-page">
-		<header class="main-header"> 
+		<header class="main-header">
 				<div class="container clearfix">
 					<nav class="main-navigation">
 						<a class="logo-inner" href="index">
@@ -19,39 +17,28 @@
 						</a>
 						<ul>						
 							<li>
-								<a href="#">${navigation_Information}</a>
+								<a href="#">Информация</a>
 							</li>
 							<li>
-								<a href="controller?command=showAllNews">${navigation_news}</a>
+								<a href="#">Новости</a>
 							</li>
 							<li class="active">
-								<span>${navigation_price}</span>
+								<span>Прайс-лист</span>
 							</li>
 							<li>
-								<a href="shop.html">${navigation_shop}</a>
+								<a href="shop.html">Магазин</a>
 							</li>
 							<li>
-								<a href="#">${navigation_contacts}</a>
+								<a href="#">Контакты</a>
 							</li>
 						</ul>	
 					</nav>
-					
 					<div class="user-block">
-						<c:if test="${sessionScope.logged == null}">
-							<a class="login" href="#">${navigation_signIn}</a>
-						</c:if>
-						<c:if test="${sessionScope.logged == true}">
-						<form action="controller" method="post">
-							<button class="btn exit" type="submit" name="command" value="signout">Выход</button>
-						</form>
-							<a class="login1" href="cabinet">
-								<c:out value="${user.name}"></c:out>
-							</a>
-						</c:if>
+						<a class="login" href="registration">Вход</a>
 					</div>
+				
 				</div>
 		</header>
-		
 		<main class="container">
 		<div class="inner-page-title">
 			<h1>Прайс-лист</h1>
@@ -114,18 +101,17 @@
 			</div>	
 		</div>
 		</main>
-		
 		<footer class="main-footer">
 			<div class="container clearfix">
 				<section class="footer-contacts">
-					${footer_contacts_first} <br>
-					${footer_contacts_second}<br>
-					<a href="#">${footer_contacts_thrid}</a><br>
-					${footer_contacts_forsth}
+					Барбершоп Borodinski <br>
+					Адрес: г.Минск, Валерьяново д. 18<br>
+					<a href="#">Как нас найти?</a><br>
+					Телефон: +375(29)555-55-22
 				</section>
 				<section class="footer-social">
 					<p>
-						${footer_social}
+						Давайте дружить!
 					</p>
 					<a class="social-btn social-btn-vk" href="#">Вконтакте</a>
 					<a class="social-btn social-btn-fb" href="#">Фейсбук</a>
@@ -133,19 +119,19 @@
 					
 				</section>
 				<section class="footer-copyright">
-					<p>${footer_copyright}</p>
-					<a class="btn" href="#">Николаев Илья</a>
+					<p>Разработано:</p>
+					<a class="btn" href="https://htmlacademy.ru">Николаев Илья</a>
 				</section>
+				
 			</div>
 		</footer>
-		<!-- POP UP логинация -->
 		<div class="modal-content">
 			<button class="modal-content-close" type="button" title="Закрыть">Закрыть</button>
 			<h2 class="modal-content-title">Личтный кабинет</h2>
 			<p>Введите свой логин и пароль</p>
-			<form class="login-form" action="controller" method="post">
-				<input class="icon-user" type="text" name="user_login" placeholder="Логин" required="required">
-				<input class="icon-password" type="password" name="user_password" placeholder="Пароль" required="required">
+			<form class="login-form" action="pa" method="post">
+				<input class="icon-user" type="text" name="login" placeholder="Логин">
+				<input class="icon-password" type="password" name="password" placeholder="Пароль">
 				<label class="login-checkbox">
 					<input type="checkbox" name="remember">
 					<span class="checbox-indicator"></span>
@@ -154,17 +140,10 @@
 					<a class="restore" href="#">Я забыл пароль</a>
 					<a class="restore" href="registration">Регистрация</a>
 				
-				<button class="btn" type="submit" name="command" value="signin">Войти</button>
+				<button class="btn" type="submit">Войти</button>
 			</form>
 		</div>
-		<!-- КАРТА С POP-UP -->
-		<div class="modal-content-map">
-			 <button class="modal-content-close" type="button" title="Закрыть">Закрыть</button>
-			 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2346.8370973253445!2d27.664170516205665!3d53.97016048011455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbc8de62279abb%3A0x2a802aca07fcef6a!2z0YPQuy4g0JLQsNC70LXRgNGM0Y_QvdC-0LLQviAxNiwg0JLQsNC70LXRgNGM0Y_QvdC-0LLQviAyMjMwNTMsINCR0LXQu9Cw0YDRg9GB0Yw!5e0!3m2!1sru!2sru!4v1484740519890" width="766" height="561" frameborder="0" style="border:0" allowfullscreen></iframe>
-			 <div class="yandex-map"></div>
-		</div>
 		<div class="modal-overlay"></div>
-		
 		<script src="js/javascript.js"></script>
 	</body>
 </html>

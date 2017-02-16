@@ -106,13 +106,13 @@ body {
 	background: none;
 }
 .user-block{
-	position: relative;
-	 max-width: 160px;
+	 max-width: 140px;
 	float: right;
 	
 	/* только для оформления сетки 
 	min-height: 70px;*/
 }
+
 .login {
 	position: relative;
 	
@@ -125,38 +125,6 @@ body {
 	line-height: 20px;
 	vertical-align: top;
 }
-.login1 {
-	position: relative;
-	
-	display: inline-block;
-	padding: 25px 15px;
-	padding-left: 50px;
-	text-decoration: none;
-	color: #ffffff;
-	font-size: 14px;
-	line-height: 20px;
-	vertical-align: top;
-}
-.exit {
-	position: absolute;
-	top: 0px;
-	left: -70px;
-	display: inline-block;
-	margin-top: 15px;
-	padding: 25px 15px;
-	padding-left: 50px;
-	text-decoration: none;
-	color: #ffffff;
-	font-size: 14px;
-	line-height: 20px;
-	vertical-align: top;
-}
-.user-block .btn:hover, .btn:active {
-	background-color: #242424;
-}
-
-
-
 .login:hover {
 	background: #242424;
 }
@@ -626,32 +594,6 @@ body {
 	display inline-block;
 	text-align: center;
 }
-
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< ADMIN >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-
-.admin_table { 
-    width: 100%; /* Ширина таблицы */
-    border-collapse: collapse; /* Отображать только одинарные линии */
-   }
- .admin_table th { 
-    text-align: center; /* Выравнивание по center краю */
-    background: #ccc; /* Цвет фона ячеек */
-    padding: 5px; /* Поля вокруг содержимого ячеек */
-    border: 1px solid black; /* Граница вокруг ячеек */
-   }
-.admin_table td { 
-	text-align: center;  /* Выравнивание по center */
-    padding: 5px; /* Поля вокруг содержимого ячеек */
-    border: 1px solid black; /* Граница вокруг ячеек */
-   }
-
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PAGE-NEWS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-
-.inner-page-news h2{
-	margin-top: 50px;	
-}
-
-
 /* Всплывающая форма */
 
 
@@ -669,49 +611,6 @@ body {
 	
 	background: #f8f3f0 url("../img/pattern-white.gif");
 	box-shadow: 0 30px 50px rgba(0,0,0,0.7);
-}
-/*localization !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-.rus-localization{
-	position: absolute;
-	top: 70px;
-	left: 70px;
-	width: 22px;
-	height: 22px;
-	margin: 0 2px;
-	padding: 1px;
-	font-size: 0;
-	vertical-align: top;
-	text-decoration: none;
-	background: url("../img/rus.png") no-repeat;
-	font-size: 0;
-	border: 0;
-	outline: 0;
-	cursor: pointer;
-	opacity: 0.3;
-}
-.rus-localization:hover {
-	opacity: 1;
-}
-.us-localization{
-	position: absolute;
-	top: 70px;
-	left: 40px;
-	width: 22px;
-	height: 22px;
-	margin: 0 2px;
-	padding: 1px;
-	font-size: 0;
-	vertical-align: top;
-	text-decoration: none;
-	background: url("../img/en.png") no-repeat;
-	font-size: 0;
-	border: 0;
-	outline: 0;
-	cursor: pointer;
-	opacity: 0.3;
-}
-.us-localization:hover{
-	opacity: 1;
 }
 /* кнопка закрыть */
 .modal-content-close {
@@ -882,8 +781,6 @@ body {
 	
 	background: rgba(0,0,0,0.5);
 }
-
-
 
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<   FOR JAVASCRIPT >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
