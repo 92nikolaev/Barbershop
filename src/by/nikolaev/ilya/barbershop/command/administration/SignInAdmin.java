@@ -27,11 +27,12 @@ public class SignInAdmin implements Command {
 			admin = new Admin();
 			admin.setLogin(loginAdmin(request, response));
 			admin.setPassword(passwordAdmin(request, response));
-			admin = administrationService.SignInAdmin(admin);
+			admin = administrationService.signInAdmin(admin);
 
 			if ((admin.getId() != 0) && (admin.isStatus())) {
 				HttpSession session = request.getSession();
-				session.setAttribute("superUser", admin);
+				session.setAttribute(NameParametr.ATR_SUPER_USER, admin);
+				session.setAttribute(NameParametr.ATR_LOGGED_ADMIN, true);
 				page = NamePage.ADMIN_PAGE;
 			} else {
 				page = NamePage.ERROR_PAGE;

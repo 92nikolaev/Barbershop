@@ -31,11 +31,11 @@ public class Registration implements Command {
 
 			if (user != null) {
 				HttpSession session = request.getSession();
-				session.setAttribute("user", user);
-				session.setAttribute("logged", true);
+				session.setAttribute(NameParametr.ATR_USER, user);
+				session.setAttribute(NameParametr.ATR_LOGGED_USER, true);
 				page = NamePage.INDEX_PAGE;
 			} else {
-				page = "error.jsp";
+				page = NamePage.ERROR_PAGE;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

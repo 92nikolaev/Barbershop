@@ -22,7 +22,7 @@
 						</a>
 						<ul>						
 							<li>
-								<a href="#">${navigation_Information}</a>
+								<a href="information">${navigation_Information}</a>
 							</li>
 							<li>
 								<a href="controller?command=showAllNews">${navigation_news}</a>
@@ -31,10 +31,10 @@
 								<a href="price-list">${navigation_price}</a>
 							</li>
 							<li>
-								<a href="shop.html">${navigation_shop}</a>
+								<a href="shop">${navigation_shop}</a>
 							</li>
 							<li>
-								<a href="#">${navigation_contacts}</a>
+								<a href="contact">${navigation_contacts}</a>
 							</li>
 						</ul>	
 					</nav>
@@ -55,11 +55,6 @@
 					</div>
 				</div>
 		</header>
-		
-			<form action="controller" method="post">
-			
-		<button  type="submit" name="command" value="show_users">Show</button>
-			</form>
 		<main class="container">
 		<div class="inner-page-title">
 			<ul class="breadcrumbs">
@@ -76,43 +71,41 @@
 				<h2>Личный Кабинет</h2>
 			</div>
 			<div class="inner-columns clearfix">
-				<div class="inner-column-left">
+				<div class="cabinet-inner-column-left">
 					<ul class="custom-list-1">
 					<h2>Личные Даннаые</h2>
-						<li>Имя Фамилия : ${user.name} ${user.surname}</li>
-						<li>Email : ${user.email}</li>
-						<li>Login : ${user.login}</li>
-						<li>Дата полсдедней стрижки : </li>				
+						<li>Имя : <span class="cabinet-user-content">${user.name}</span> </li>
+						<li>Фамилия : <span class="cabinet-user-content">${user.surname}</span></li>
+						<li>Email : <span class="cabinet-user-content">${user.email}</span></li>
+						<li>Login : <span class="cabinet-user-content">${user.login}</span></li>
+						<li>Дата полсдедней стрижки : <span class="cabinet-user-content">22-01-2017 </span></li>				
 					</ul>
+					<br>
+					<h2>Настройки Профиля</h2>
+                        
+                            <a class="btn edit" href="#">Редактировать профиль</a><br>
+<!--                             <button class="btn" type="submit" name="record" value="record_cutheir">Запись на стрижку</button><br> -->
+<!--                             <button class="btn" type="submit" name="addfoto" value="add_foto">Дабавить фото</button><br> -->
+                        
 				</div>
-				<div class="inner-column-right">	
-					<h2 class="index-content-title">${content_title_right}</h2>
-						<div class="gallery">
-							<figure class="gallery-content">
-								<img src="img/photo-1.jpg" width="286" height="164" alt="">
-							</figure>
-							<button class="btn gallery-prev" type="button">${btn_gallery_prev}</button>
-							<button class="btn gallery-next" type="button">${btn_gallery_next}</button>						
-						</div>
-				</div>	
-			</div>
-			<div class="inner-columns clearfix">
-				<h2>Несколько слов о нас:</h2>
-				<div class="inner-column-left">
-					<p>	
-						Наша парикмахерская заниается исключительно мужскими стрижками.
-						Стрижка каждого клиента для нас - это уникальная и продуманая до мелочей работа.
-						Мы не работаем на качество, мы делаем качество.
-					</p>
+				<div class="cabinet-inner-column-right">	
+					<h2 class="index-content-title">Мои Стрижки</h2>
+						<div class="catalog-items">
+                        <div class="catalog-item">
+                  
+                                <img src="img/first.jpg" width="220" height="165">
+                                <div class="catalog-title item-title item-info-block">Дата: 02-02-2017</div>
+                            
+                            
+                        </div>
+                        <div class="catalog-item">              
+                                <img src="img/second.jpg" width="220" height="165">
+                                <div class="catalog-title item-title item-info-block">Дата: 02-01-2017</div>                       
+                 	  </div>  
+					</div>	
 				</div>
-				<div class="inner-column-right">
-					<p>
-						Наша мастерская расположена в центре города, поэтому стильную стрижку можно сделать в любое время, даже в обеденный перерыв.
-						Здесь вы можете погрузиться в удобную для вас атмосферу, чувствовать себя комфортно и свободно!
-					</p>
 				</div>
-			</div>	
-		</div>
+			</div> 
 		</main>
 		
 		
@@ -122,7 +115,7 @@
 				<section class="footer-contacts">
 					${footer_contacts_first} <br>
 					${footer_contacts_second}<br>
-					<a href="#">${footer_contacts_thrid}</a><br>
+					<a class="where" href="#">${footer_contacts_thrid}</a><br>
 					${footer_contacts_forsth}
 				</section>
 				<section class="footer-social">
@@ -140,23 +133,38 @@
 				</section>
 			</div>
 		</footer>
-		<!-- POP UP логинация -->
-		<div class="modal-content">
+		<!-- POP UP Edit profile -->
+		<div class="modal-content-edit">
 			<button class="modal-content-close" type="button" title="Закрыть">Закрыть</button>
-			<h2 class="modal-content-title">Личтный кабинет</h2>
-			<p>Введите свой логин и пароль</p>
-			<form class="login-form" action="controller" method="post">
-				<input class="icon-user" type="text" name="user_login" placeholder="Логин" required="required">
-				<input class="icon-password" type="password" name="user_password" placeholder="Пароль" required="required">
-				<label class="login-checkbox">
-					<input type="checkbox" name="remember">
-					<span class="checbox-indicator"></span>
-					Запомнить меня
-					</label>
-					<a class="restore" href="#">Я забыл пароль</a>
-					<a class="restore" href="registration">Регистрация</a>
+			<h2 class="modal-content-title">Редактирования профиля</h2>
+			<p>Измените только те данные которые вы хотите поменять</p>
+			<form class="login-form1-cabinet" action="controller" method="post">
+			
+			<table>
+				<tr>
+					<td>Изменить имя</td>
+					<td><input class="icon-user1" type="text" name="edit_user_name" placeholder="Изменить имя" value="${user.name}" required="required"></td>
+				</tr>
+				<tr>
+					<td>Изменить фамилию</td>
+					<td><input class="icon-user1" type="text" name="edit_user_surname" placeholder="Изменить фамилию" value="${user.surname}" required="required"></td>
+				</tr>
+				<tr>
+					<td>Изменить Email</td>
+					<td><input class="icon-user1" type="text" name="edit_user_email" placeholder="Изменить Email" value="${user.email}" required="required"></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<label class="login-checkbox" >
+							<input type="checkbox" name="agry_edit" value="true" checked>
+							<span class="checbox-indicator"></span>
+							Я подтверждаю изменения
+						</label>
+					</td>
+					
+			</table>
 				
-				<button class="btn" type="submit" name="command" value="signin">Войти</button>
+				<button class="btn" type="submit" name="command" value="editprofile">Редактирования профиля</button>
 			</form>
 		</div>
 		<!-- КАРТА С POP-UP -->
@@ -166,7 +174,6 @@
 			 <div class="yandex-map"></div>
 		</div>
 		<div class="modal-overlay"></div>
-		
-		<script src="js/javascript.js"></script>
+		<script src="js/editProfile.js" ></script>
 </body>
 </html>

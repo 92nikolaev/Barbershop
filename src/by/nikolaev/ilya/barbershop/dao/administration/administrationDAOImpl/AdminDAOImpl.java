@@ -8,7 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import by.nikolaev.ilya.barbershop.bean.Admin;
+import by.nikolaev.ilya.barbershop.bean.Record;
 import by.nikolaev.ilya.barbershop.bean.User;
+import by.nikolaev.ilya.barbershop.dao.SQLCommand;
 import by.nikolaev.ilya.barbershop.dao.ConnectionData.ConnectionDataSource;
 import by.nikolaev.ilya.barbershop.dao.administration.AdministrationDAO;
 import by.nikolaev.ilya.barbershop.dao.exception.DAOException;
@@ -25,7 +27,7 @@ public class AdminDAOImpl implements AdministrationDAO {
 		try {
 			connection = ConnectionDataSource.getConnection();
 			statement = connection.createStatement();
-			resultSet = statement.executeQuery("SELECT * FROM user");
+			resultSet = statement.executeQuery(SQLCommand.SELECT_SHOW_ALL_USERS);
 
 			while (resultSet.next()) {
 				User user = new User();
@@ -41,6 +43,17 @@ public class AdminDAOImpl implements AdministrationDAO {
 
 		} catch (Exception e) {
 			throw new DAOException(e);
+		} finally {
+			try {
+				resultSet.close();
+			} catch (SQLException e) {
+				throw new DAOException(e);
+			}
+			try {
+				statement.close();
+			} catch (SQLException e) {
+				throw new DAOException(e);
+			}
 		}
 
 		return listUser;
@@ -54,7 +67,7 @@ public class AdminDAOImpl implements AdministrationDAO {
 
 		try {
 			connection = ConnectionDataSource.getConnection();
-			preparedStatement = connection.prepareStatement("select * from superUser where admin_login=? and admin_password=?");
+			preparedStatement = connection.prepareStatement(SQLCommand.SELECT_SING_IN_ADMIN);
 			preparedStatement.setString(1, admin.getLogin());
 			preparedStatement.setString(2, admin.getPassword());
 
@@ -74,9 +87,62 @@ public class AdminDAOImpl implements AdministrationDAO {
 			throw new DAOException(e);
 		} catch (Exception e) {
 			throw new DAOException(e);
+		} finally {
+			try {
+				resultSet.close();
+			} catch (SQLException e) {
+				throw new DAOException(e);
+			}
+			try {
+				preparedStatement.close();
+			} catch (SQLException e) {
+				throw new DAOException(e);
+			}
 		}
 
 		return admin;
+	}
+
+	@Override
+	public ArrayList<Record> showRegistrationHairCut() throws DAOException {
+		ArrayList<Record> listRecord = new ArrayList<>();
+		ResultSet resultSet = null;
+		Connection connection = null;
+		Statement statement = null;
+
+		try {
+			connection = ConnectionDataSource.getConnection();
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(SQLCommand.SELECT_SHOW_ALL_RGISTRATION_HAIRCUT);
+
+			while (resultSet.next()) {
+				Record record = new Record();
+
+				record.setId(resultSet.getInt(1));
+				record.setName(resultSet.getString(2));
+				record.setData(resultSet.getString(3));
+				record.setTime(resultSet.getString(4));
+				record.setPhone(resultSet.getString(5));
+				record.setUserId(resultSet.getInt(6));
+				listRecord.add(record);
+			}
+
+		} catch (Exception e) {
+			throw new DAOException(e);
+		} finally {
+			try {
+				resultSet.close();
+			} catch (SQLException e) {
+				throw new DAOException(e);
+			}
+			try {
+				statement.close();
+			} catch (SQLException e) {
+				throw new DAOException(e);
+			}
+		}
+
+		return listRecord;
 	}
 
 }

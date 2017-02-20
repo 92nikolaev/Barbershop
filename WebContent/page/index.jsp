@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@include file="../pagehelp/localization.jspf" %>
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -15,26 +17,37 @@
 					<nav class="main-navigation">
 						<ul>						
 							<li>
-								<a href="#">Информация</a>
+								<a href="information">${navigation_Information}</a>
 							</li>
 							<li>
-								<a href="#">Новости</a>
+								<a href="controller?command=showAllNews">${navigation_news}</a>
 							</li>
 							<li>
-								<a href="price-list">Прайс-лист</a>
+								<a href="price-list">${navigation_price}</a>
 							</li>
 							<li>
-								<a href="shop.html">Магазин</a>
+								<a href="shop">${navigation_shop}</a>
 							</li>
 							<li>
-								<a href="#">Контакты</a>
+								<a href="contact">${navigation_contacts}</a>
 							</li>
 						</ul>	
 					</nav>
 					<div class="user-block">
-						<a class="login" href="#">Вход</a>
+						<c:if test="${sessionScope.logged == null}">
+							<a class="login" href="#">${navigation_signIn}</a>
+						</c:if>
+						<c:if test="${sessionScope.logged == true}">
+							<a class="login1" href="cabinet">
+								<c:out value="${user.name}"></c:out>
+							</a>
+						</c:if>
+						<form action="controller" method="post">
+							<input type="hidden" name="command" value="localization" />
+							<button class="rus-localization" type="submit" name="local" value="ru"></button>
+							<button class="us-localization" type="submit" name="local" value="en"></button>
+						</form>
 					</div>
-				
 				</div>
 		</header>
 		<main class="container">
@@ -43,30 +56,21 @@
 			</div>
 			<section class="features clearfix">
 				<div class="features-item">
-					<b class="features-name">Быстро</b>
-					<p>
-						Мы делаем свою работу быстро! Два часа пролетят незаметно
-						и вы - счастливый обладатель стильной стрижки-минутки!
-					</p>
+					<b class="features-name">${first_header}</b>
+					<p>${first_features}</p>
 				</div>
 				<div class="features-item">
-					<b class="features-name">Круто</b>
-					<p>
-						Забудьте, как вы стриглись раньше. Мы сделаем из вас звезду футбола или кино!
-						Во всяком случае внешнею
-					</p>
+					<b class="features-name">${second_header}</b>
+					<p>${second_features}</p>
 				</div>
 				<div class="features-item">
-					<b class="features-name">Дорого</b>
-					<p>
-						Наши мастера - профессионалы своего дела и не могут стоить дешево.
-						К тому же, разве цена не дает определенный статус?
-					</p>
+					<b class="features-name">${third_header}</b>
+					<p>${third_features}</p>
 				</div>
 			</section>	
 				<div class="index-content clearfix">
 					<div class="index-content-left">
-						<h2 class="index-content-title">Новости</h2>
+						<h2 class="index-content-title">${content_title_left}</h2>
 						<ul class="news-preview">
 							<li>
 								<p>
@@ -83,22 +87,22 @@
 								<time datetime="2017-01-05">5 Января</time>
 							</li>
 						</ul>
-						<a class="btn" href="#">Все новости</a>
+						<a class="btn" href="controller?command=showAllNews">${content_left_btn}</a>
 					</div>
 					<div class="index-content-right">
-						<h2 class="index-content-title">Фотогалерея</h2>
+						<h2 class="index-content-title">${content_title_right}</h2>
 						<div class="gallery">
 							<figure class="gallery-content">
 								<img src="img/photo-1.jpg" width="286" height="164" alt="">
 							</figure>
-							<button class="btn gallery-prev" type="button">Назад</button>
-							<button class="btn gallery-next" type="button">Вперед</button>						
+							<button class="btn gallery-prev" type="button">${btn_gallery_prev}</button>
+							<button class="btn gallery-next" type="button">${btn_gallery_next}</button>						
 						</div>
 					</div>
 				</div>
 				<div class="index-content clearfix">
 					<div class="index-content-left">
-						<h2 class="index-content-title">Контактная информация</h2>
+						<h2 class="index-content-title">${content_title_left_inf}</h2>
 						<p>
 							Барбершоп Borodinski <br>
 							Адрес: г.Минск, Валерьяново д. 18<br>
@@ -109,21 +113,21 @@
 							пн - пт: c 10:00 до 22:00<br>
 							сб - вс: с 10:00 до 19:00
 						</p>
-						<a class="btn js-open-map" href="#">Как проехать</a>
-						<a class="btn" href="#">Обратная связь</a>
+						<a class="btn js-open-map" href="#">${content_left_inf_btn_where}</a>
+						<a class="btn" href="#">${content_left_inf_btn_feedback}</a>
 					</div>	
 					<div class="index-content-right">
-						<h2 class="index-content-title">Записаться</h2>
+						<h2 class="index-content-title">${content_title_right_registr}</h2>
 						<p>
 						Укажите желаемую дату и время
 						и мы свяжемся с вами для подтверждения брони
 						</p>
-						<form class="appointment-form" action="do.do" method="post">
-							<input type="text" name="date" value="" placeholder="Дата">
-							<input type="text" name="time" value="" placeholder="Время">
-							<input type="text" name="name" value="" placeholder="Имя">
-							<input type="tel" name="tel" value="" placeholder="Телефон">
-							<button class="btn" type="submit">Отправка</button>
+						<form class="appointment-form" action="controller" method="post">
+							<input type="date" name="record_date" placeholder="Дата" required="required">
+							<input type="time" name="record_time" placeholder="Время" required="required">
+							<input type="text" name="record_name" value="${user.name}" placeholder="Имя" required="required">
+							<input type="tel" name="record_phone"  placeholder="Телефон" required="required">
+							<button class="btn" type="submit" name="command" value="record">${content_left_inf_btn_register}</button>
 						</form>
 					</div>	
 				</div>		
@@ -131,14 +135,14 @@
 		<footer class="main-footer">
 			<div class="container clearfix">
 				<section class="footer-contacts">
-					Барбершоп Borodinski <br>
-					Адрес: г.Минск, Валерьяново д. 18<br>
-					<a href="#">Как нас найти?</a><br>
-					Телефон: +375(29)555-55-22
+					${footer_contacts_first} <br>
+					${footer_contacts_second}<br>
+					<a href="#">${footer_contacts_thrid}</a><br>
+					${footer_contacts_forsth}
 				</section>
 				<section class="footer-social">
 					<p>
-						Давайте дружить!
+						${footer_social}
 					</p>
 					<a class="social-btn social-btn-vk" href="#">Вконтакте</a>
 					<a class="social-btn social-btn-fb" href="#">Фейсбук</a>
@@ -146,7 +150,7 @@
 					
 				</section>
 				<section class="footer-copyright">
-					<p>Разработано:</p>
+					<p>${footer_copyright}</p>
 					<a class="btn" href="#">Николаев Илья</a>
 				</section>
 			</div>
@@ -154,11 +158,11 @@
 		<!-- POP UP логинация -->
 		<div class="modal-content">
 			<button class="modal-content-close" type="button" title="Закрыть">Закрыть</button>
-			<h2 class="modal-content-title">Личтный кабинет</h2>
+			<h2 class="modal-content-title">Личный кабинет</h2>
 			<p>Введите свой логин и пароль</p>
-			<form class="login-form" action="pa" method="post">
-				<input class="icon-user" type="text" name="login" placeholder="Логин">
-				<input class="icon-password" type="password" name="password" placeholder="Пароль">
+			<form class="login-form" action="controller" method="post">
+				<input class="icon-user" type="text" name="user_login" placeholder="Логин" required="required">
+				<input class="icon-password" type="password" name="user_password" placeholder="Пароль" required="required">
 				<label class="login-checkbox">
 					<input type="checkbox" name="remember">
 					<span class="checbox-indicator"></span>
@@ -167,7 +171,7 @@
 					<a class="restore" href="#">Я забыл пароль</a>
 					<a class="restore" href="registration">Регистрация</a>
 				
-				<button class="btn" type="submit">Войти</button>
+				<button class="btn" type="submit" name="command" value="signin">Войти</button>
 			</form>
 		</div>
 		<!-- КАРТА С POP-UP -->
@@ -177,6 +181,7 @@
 			 <div class="yandex-map"></div>
 		</div>
 		<div class="modal-overlay"></div>
+		
 		<script src="js/javascript.js"></script>
 	</body>
 </html>

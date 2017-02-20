@@ -38,7 +38,7 @@ public class NewsServiceImpl implements NewsService {
 				throw new ServiceException();
 			}
 		} else {
-			throw new ServiceException("You did not write incorecet Title or Content");
+			throw new ServiceException();
 		}
 
 		return news;

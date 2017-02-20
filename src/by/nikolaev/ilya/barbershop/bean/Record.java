@@ -11,6 +11,7 @@ public class Record implements Serializable {
 	private String time;
 	private String data;
 	private String phone;
+	private int userId;
 
 	public int getId() {
 		return id;
@@ -26,6 +27,14 @@ public class Record implements Serializable {
 
 	public String getData() {
 		return data;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public int getUserId() {
+		return userId;
 	}
 
 	public void setId(int id) {
@@ -44,12 +53,12 @@ public class Record implements Serializable {
 		this.data = data;
 	}
 
-	public String getPhone() {
-		return phone;
-	}
-
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 }

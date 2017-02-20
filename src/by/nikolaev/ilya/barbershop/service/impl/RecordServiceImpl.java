@@ -11,6 +11,23 @@ import by.nikolaev.ilya.barbershop.service.validation.ValidateRecord;
 public class RecordServiceImpl implements RecordService {
 
 	@Override
+	public Record signInRecordForSignInUser(Record record) throws ServiceException {
+		if (!ValidateRecord.validateRecord(record)) {
+			record = null;
+		} else {
+			DAOFactory daoFactory = DAOFactory.getInstance();
+			RecordDAO recordDAO = daoFactory.getRecordDAO();
+			try {
+				record = recordDAO.signInRecordForSignInUser(record);
+			} catch (DAOException e) {
+				throw new ServiceException();
+			}
+
+		}
+		return record;
+	}
+
+	@Override
 	public Record signInRecord(Record record) throws ServiceException {
 		if (!ValidateRecord.validateRecord(record)) {
 			record = null;

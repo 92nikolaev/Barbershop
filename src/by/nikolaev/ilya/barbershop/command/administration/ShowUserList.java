@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import by.nikolaev.ilya.barbershop.bean.User;
 import by.nikolaev.ilya.barbershop.command.Command;
+import by.nikolaev.ilya.barbershop.command.NameParametr;
 import by.nikolaev.ilya.barbershop.command.exeption.CommandNotFoundException;
 import by.nikolaev.ilya.barbershop.controller.NamePage;
 import by.nikolaev.ilya.barbershop.service.ServiceFactory;
@@ -25,10 +26,10 @@ public class ShowUserList implements Command {
 		AdministrationService administrationService = serviceFactory.getAdministrationService();
 
 		try {
-			listUsers = administrationService.ShowUserList();
+			listUsers = administrationService.showUserList();
 			if (listUsers != null) {
 				HttpSession session = request.getSession();
-				session.setAttribute("user_list", listUsers);
+				session.setAttribute(NameParametr.ATR_USERS_LIST, listUsers);
 				page = NamePage.LIST_USERS_PAGE;
 			} else {
 				page = NamePage.ERROR_PAGE;

@@ -19,7 +19,7 @@
 						</a>
 						<ul>						
 							<li>
-								<a href="#">${navigation_Information}</a>
+								<a href="information">${navigation_Information}</a>
 							</li>
 							<li>
 								<a href="controller?command=showAllNews">${navigation_news}</a>
@@ -28,24 +28,24 @@
 								<a href="#">${navigation_price}</a>
 							</li>
 							<li>
-								<a href="shop.html">${navigation_shop}</a>
+								<a href="shop">${navigation_shop}</a>
 							</li>
 							<li>
-								<a href="#">${navigation_contacts}</a>
+								<a href="contact">${navigation_contacts}</a>
 							</li>
 						</ul>	
 					</nav>
 					
 					<div class="user-block">
-						<c:if test="${sessionScope.logged == null}">
+						<c:if test="${sessionScope.loggedAdmin == null}">
 							<a class="login" href="#">${navigation_signIn}</a>
 						</c:if>
-						<c:if test="${sessionScope.logged == true}">
+						<c:if test="${sessionScope.loggedAdmin == true}">
 						<form action="controller" method="post">
 							<button class="btn exit" type="submit" name="command" value="signout">Выход</button>
 						</form>
 							<a class="login1" href="cabinet">
-								<c:out value="${user.name}"></c:out>
+								<c:out value="${superUser.name}"></c:out>
 							</a>
 						</c:if>
 					</div>
@@ -119,7 +119,7 @@
 		<!-- POP UP логинация -->
 		<div class="modal-content">
 			<button class="modal-content-close" type="button" title="Закрыть">Закрыть</button>
-			<h2 class="modal-content-title">Личтный кабинет</h2>
+			<h2 class="modal-content-title">Личный кабинет</h2>
 			<p>Введите свой логин и пароль</p>
 			<form class="login-form" action="controller" method="post">
 				<input class="icon-user" type="text" name="user_login" placeholder="Логин" required="required">

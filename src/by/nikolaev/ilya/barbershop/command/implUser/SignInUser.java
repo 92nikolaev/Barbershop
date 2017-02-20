@@ -33,8 +33,8 @@ public class SignInUser implements Command {
 
 			if (user.getId() != 0) {
 				HttpSession session = request.getSession();
-				session.setAttribute("user", user);
-				session.setAttribute("logged", true);
+				session.setAttribute(NameParametr.ATR_USER, user);
+				session.setAttribute(NameParametr.ATR_LOGGED_USER, true);
 				page = NamePage.INDEX_PAGE;
 
 			} else {

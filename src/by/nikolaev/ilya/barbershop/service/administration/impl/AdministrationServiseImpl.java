@@ -3,6 +3,7 @@ package by.nikolaev.ilya.barbershop.service.administration.impl;
 import java.util.ArrayList;
 
 import by.nikolaev.ilya.barbershop.bean.Admin;
+import by.nikolaev.ilya.barbershop.bean.Record;
 import by.nikolaev.ilya.barbershop.bean.User;
 import by.nikolaev.ilya.barbershop.dao.administration.AdministrationDAO;
 import by.nikolaev.ilya.barbershop.dao.exception.DAOException;
@@ -13,7 +14,7 @@ import by.nikolaev.ilya.barbershop.service.exeption.ServiceException;
 public class AdministrationServiseImpl implements AdministrationService {
 
 	@Override
-	public ArrayList<User> ShowUserList() throws ServiceException {
+	public ArrayList<User> showUserList() throws ServiceException {
 
 		ArrayList<User> listUser = null;
 		DAOFactory daoFactory = DAOFactory.getInstance();
@@ -29,7 +30,7 @@ public class AdministrationServiseImpl implements AdministrationService {
 	}
 
 	@Override
-	public Admin SignInAdmin(Admin admin) throws ServiceException {
+	public Admin signInAdmin(Admin admin) throws ServiceException {
 		if ((admin.getLogin() != null) && (admin.getPassword() != null)) {
 			DAOFactory daoFactory = DAOFactory.getInstance();
 			AdministrationDAO administrationDAO = daoFactory.getAdministrationDAO();
@@ -40,9 +41,24 @@ public class AdministrationServiseImpl implements AdministrationService {
 				throw new ServiceException();
 			}
 		} else {
-			throw new ServiceException("You did not write incorecet login or password");
+			throw new ServiceException();
 		}
 		return admin;
+	}
+
+	@Override
+	public ArrayList<Record> showUserRegistrationHairCut() throws ServiceException {
+		ArrayList<Record> listUsers = null;
+
+		DAOFactory daoFactory = DAOFactory.getInstance();
+		AdministrationDAO administrationDAO = daoFactory.getAdministrationDAO();
+
+		try {
+			listUsers = administrationDAO.showRegistrationHairCut();
+		} catch (DAOException e) {
+			throw new ServiceException();
+		}
+		return listUsers;
 	}
 
 }

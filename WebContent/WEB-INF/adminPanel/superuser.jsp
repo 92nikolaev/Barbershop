@@ -40,26 +40,21 @@
 					</nav>
 					
 					<div class="user-block">
-					
-						<c:if test="${sessionScope.logged == null}">
+						<c:if test="${sessionScope.loggedAdmin == null}">
 							<a class="login" href="#">${navigation_signIn}</a>
 						</c:if>
-						<c:if test="${sessionScope.logged == true}">
+						<c:if test="${sessionScope.loggedAdmin == true}">
 						<form action="controller" method="post">
 							<button class="btn exit" type="submit" name="command" value="signout">Выход</button>
 						</form>
-							<a class="login1" href="#">
-								<c:out value="${user.name}"></c:out>
+							<a class="login1" href="cabinet">
+								<c:out value="${superUser.name}"></c:out>
 							</a>
 						</c:if>
 					</div>
 				</div>
 		</header>
 		
-			<form action="controller" method="post">
-			
-		<button  type="submit" name="command" value="show_users">Show</button>
-			</form>
 		<main class="container">
 		<div class="inner-page-title">
 			<ul class="breadcrumbs">
@@ -77,14 +72,43 @@
 			</div>
 				<table class="admin_table">
 					<tr class="admin_table">
-					        	<td></td>
+					        	
 					        	<td>
 					        		<form action="controller" method="post">			
-										<button  type="submit" name="command" value="show_users">ShowAllUsers</button>
+										<button class="btn"  type="submit" name="command" value="show_users">ShowAllUsers</button>
 									</form>
 								</td>
-					        	<td><a href="new_news">Add News</a></td>
+								<td>
+								<form action="controller" method="post">			
+										<button class="btn"  type="submit" name="command" value="page_add_news">Add News</button>
+								</form>
 					 </tr>      	
+					 <tr>
+					 		<td>
+					        		<form action="controller" method="post">			
+										<button class="btn"  type="submit" name="command" value="registration_haircut">Registration for a haircut</button>
+									</form>
+								</td>
+								<td>
+					        		<form action="controller" method="post">			
+										<button class="btn"  type="submit" name="command" value="show_users">Spending Email</button>
+									</form>
+								</td>
+					 
+					 </tr>
+					  <tr>
+					 		<td>
+					        		<form action="controller" method="post">			
+										<button class="btn"  type="submit" name="command" value="show_users">Add goods</button>
+									</form>
+								</td>
+								<td>
+					        		<form action="controller" method="post">			
+										<button class="btn"  type="submit" name="command" value="show_users">schedule hairdresser</button>
+									</form>
+								</td>
+					 
+					 </tr>
 				</table>
 		  		
 			
@@ -118,33 +142,5 @@
 				</section>
 			</div>
 		</footer>
-		<!-- POP UP логинация -->
-		<div class="modal-content">
-			<button class="modal-content-close" type="button" title="Закрыть">Закрыть</button>
-			<h2 class="modal-content-title">Личтный кабинет</h2>
-			<p>Введите свой логин и пароль</p>
-			<form class="login-form" action="controller" method="post">
-				<input class="icon-user" type="text" name="user_login" placeholder="Логин" required="required">
-				<input class="icon-password" type="password" name="user_password" placeholder="Пароль" required="required">
-				<label class="login-checkbox">
-					<input type="checkbox" name="remember">
-					<span class="checbox-indicator"></span>
-					Запомнить меня
-					</label>
-					<a class="restore" href="#">Я забыл пароль</a>
-					<a class="restore" href="registration">Регистрация</a>
-				
-				<button class="btn" type="submit" name="command" value="signin">Войти</button>
-			</form>
-		</div>
-		<!-- КАРТА С POP-UP -->
-		<div class="modal-content-map">
-			 <button class="modal-content-close" type="button" title="Закрыть">Закрыть</button>
-			 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2346.8370973253445!2d27.664170516205665!3d53.97016048011455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbc8de62279abb%3A0x2a802aca07fcef6a!2z0YPQuy4g0JLQsNC70LXRgNGM0Y_QvdC-0LLQviAxNiwg0JLQsNC70LXRgNGM0Y_QvdC-0LLQviAyMjMwNTMsINCR0LXQu9Cw0YDRg9GB0Yw!5e0!3m2!1sru!2sru!4v1484740519890" width="766" height="561" frameborder="0" style="border:0" allowfullscreen></iframe>
-			 <div class="yandex-map"></div>
-		</div>
-		<div class="modal-overlay"></div>
-		
-		<script src="js/javascript.js"></script>
 </body>
 </html>

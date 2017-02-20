@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import by.nikolaev.ilya.barbershop.bean.News;
 import by.nikolaev.ilya.barbershop.command.Command;
+import by.nikolaev.ilya.barbershop.command.NameParametr;
 import by.nikolaev.ilya.barbershop.command.exeption.CommandNotFoundException;
 import by.nikolaev.ilya.barbershop.controller.NamePage;
 import by.nikolaev.ilya.barbershop.service.NewsService;
@@ -28,7 +29,7 @@ public class ShowAllNews implements Command {
 			listNews = newsService.showAllNews();
 			if (listNews != null) {
 				HttpSession session = request.getSession();
-				session.setAttribute("news_list", listNews);
+				session.setAttribute(NameParametr.ATR_NEWS_LIST, listNews);
 				page = NamePage.NEWS_PAGE;
 			} else {
 				page = NamePage.ERROR_PAGE;
