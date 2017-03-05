@@ -10,4 +10,6 @@ public interface UserDAO {
 	User signupUser(User user, String securPasword) throws DAOException;
 
 	User editProfile(User user) throws DAOException;
+
+	User personalUserDataDAO(int userId) throws DAOException;
 }

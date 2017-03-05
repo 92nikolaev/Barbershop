@@ -67,4 +67,20 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
+	@Override
+	public User personalUserData(User user) throws ServiceException {
+		int userId = user.getId();
+		System.out.println(userId);
+		DAOFactory daoFactory = DAOFactory.getInstance();
+		UserDAO userDAO = daoFactory.getUserDAO();
+
+		try {
+			user = userDAO.personalUserDataDAO(userId);
+		} catch (DAOException e) {
+			throw new ServiceException();
+		}
+
+		return user;
+	}
+
 }

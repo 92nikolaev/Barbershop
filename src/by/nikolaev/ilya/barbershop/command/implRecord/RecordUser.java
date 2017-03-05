@@ -1,4 +1,6 @@
-package by.nikolaev.ilya.barbershop.command.implRecord;
+package by.nikolaev.ilya.barbershop.command.implrecord;
+
+import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +26,7 @@ public class RecordUser implements Command {
 
 		if (user != null) {
 			Record record = packingRecordUser(request, response, user.getId());
-			System.out.println(user.getId());
+
 			ServiceFactory serviceFactory = ServiceFactory.getInstance();
 			RecordService recordService = serviceFactory.getRecordService();
 			try {
@@ -37,7 +39,7 @@ public class RecordUser implements Command {
 				}
 
 			} catch (ServiceException e) {
-				throw new CommandNotFoundException();
+				// throw new CommandNotFoundException();
 			}
 
 			return page;
@@ -72,7 +74,7 @@ public class RecordUser implements Command {
 
 		Record record = new Record();
 		record.setName(name);
-		record.setData(date);
+		record.setData(Date.valueOf(date));
 		record.setTime(time);
 		record.setPhone(phone);
 
@@ -88,7 +90,7 @@ public class RecordUser implements Command {
 
 		Record record = new Record();
 		record.setName(name);
-		record.setData(date);
+		record.setData(Date.valueOf(date));
 		record.setTime(time);
 		record.setPhone(phone);
 		record.setUserId(userId);

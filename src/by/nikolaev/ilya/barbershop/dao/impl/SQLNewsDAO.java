@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import by.nikolaev.ilya.barbershop.bean.News;
 import by.nikolaev.ilya.barbershop.dao.NewsDAO;
 import by.nikolaev.ilya.barbershop.dao.SQLCommand;
-import by.nikolaev.ilya.barbershop.dao.ConnectionData.ConnectionDataSource;
+import by.nikolaev.ilya.barbershop.dao.Connectiondata.ConnectionDataSource;
 import by.nikolaev.ilya.barbershop.dao.exception.DAOException;
 
 public class SQLNewsDAO implements NewsDAO {

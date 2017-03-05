@@ -1,4 +1,4 @@
-ssh
+﻿
 git@github.com:92nikolaev/barbershop.git
 
 We recommend every repository include a README, LICENSE, and .gitignore.

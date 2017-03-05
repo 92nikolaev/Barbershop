@@ -4,7 +4,7 @@ import by.nikolaev.ilya.barbershop.dao.NewsDAO;
 import by.nikolaev.ilya.barbershop.dao.RecordDAO;
 import by.nikolaev.ilya.barbershop.dao.UserDAO;
 import by.nikolaev.ilya.barbershop.dao.administration.AdministrationDAO;
-import by.nikolaev.ilya.barbershop.dao.administration.administrationDAOImpl.AdminDAOImpl;
+import by.nikolaev.ilya.barbershop.dao.administration.administration_dao_impl.AdminDAOImpl;
 import by.nikolaev.ilya.barbershop.dao.impl.SQLRecordDAO;
 import by.nikolaev.ilya.barbershop.dao.impl.SQLNewsDAO;
 import by.nikolaev.ilya.barbershop.dao.impl.SQLUserDAO;

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import by.nikolaev.ilya.barbershop.bean.User;
 import by.nikolaev.ilya.barbershop.dao.SQLCommand;
 import by.nikolaev.ilya.barbershop.dao.UserDAO;
-import by.nikolaev.ilya.barbershop.dao.ConnectionData.ConnectionDataSource;
+import by.nikolaev.ilya.barbershop.dao.Connectiondata.ConnectionDataSource;
 import by.nikolaev.ilya.barbershop.dao.exception.DAOException;
 
 public class SQLUserDAO implements UserDAO {
@@ -35,10 +35,8 @@ public class SQLUserDAO implements UserDAO {
 				user.setLogin(rs.getString(5));
 
 			}
-			rs.close();
-			preparedStatement.close();
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			throw new DAOException(e);
 		} finally {
 			try {
@@ -73,7 +71,7 @@ public class SQLUserDAO implements UserDAO {
 			preparedStatement.setString(5, user.getPassword());
 			preparedStatement.executeUpdate();
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			throw new DAOException(e);
 		} finally {
 			try {
@@ -100,7 +98,7 @@ public class SQLUserDAO implements UserDAO {
 
 			preparedStatement.executeUpdate();
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			throw new DAOException(e);
 		} finally {
 			try {
@@ -111,6 +109,49 @@ public class SQLUserDAO implements UserDAO {
 		}
 
 		return user;
+	}
+
+	@Override
+	public User personalUserDataDAO(int userId) throws DAOException {
+		PreparedStatement preparedStatement = null;
+		ResultSet rs = null;
+		Connection connection = null;
+		User user = null;
+
+		try {
+			connection = ConnectionDataSource.getConnection();
+			String sql = "SELECT u.user_id, u.user_name, u.user_surname, u.user_email, u.user_login, last_haircut.haircut_date FROM user AS u INNER JOIN registration_haircut AS last_haircut WHERE (u.user_id = 2) = last_haircut.user_id AND last_haircut.haircut_date = (SELECT max(registration_haircut.haircut_date) FROM registration_haircut)";
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setInt(1, userId);
+
+			rs = preparedStatement.executeQuery();
+
+			user = new User();
+
+			if (rs.next()) {
+				user = new User();
+				user.setId(rs.getInt(1));
+				user.setName(rs.getString(2));
+				user.setSurname(rs.getString(3));
+				user.setEmail(rs.getString(4));
+				user.setLogin(rs.getString(5));
+				user.setDataHaircut(rs.getDate(6));
+
+			}
+
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		} finally {
+			try {
+				preparedStatement.close();
+			} catch (SQLException e) {
+				throw new DAOException(e);
+			}
+		}
+
+		return user;
+
 	}
 
 }

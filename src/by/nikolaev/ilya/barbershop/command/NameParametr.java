@@ -37,6 +37,7 @@ public class NameParametr {
 	public static final String CMD_ADD_NEWS = "new_news";
 	public static final String CMD_ADD_EDIT_USER = "editprofile";
 	public static final String CMD_PAGE_ADD_NEWS = "page_add_news";
+	public static final String CMD_SHOW_CABINET_USER = "cabinet";
 
 	// Servlet
 	public static final String PRM_COMMAND = "command";

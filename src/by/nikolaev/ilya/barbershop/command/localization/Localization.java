@@ -15,7 +15,6 @@ public final class Localization implements Command {
 		request.getSession(true).setAttribute(NameParametr.ATR_LOCAL, request.getParameter(NameParametr.ATR_LOCAL));
 
 		// String page = request.getHeader("referer");
-		// System.out.println(page);
 
 		String page = NamePage.INDEX_PAGE;
 		return page;

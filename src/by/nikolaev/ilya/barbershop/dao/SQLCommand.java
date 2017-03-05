@@ -15,5 +15,7 @@ public class SQLCommand {
 	public static final String SELECT_SHOW_ALL_NEWS = "SELECT * FROM news ORDER BY news_id DESC";
 	public static final String SELECT_SHOW_ALL_USERS = "SELECT * FROM user";
 	public static final String SELECT_SING_IN_ADMIN = "SELECT * FROM super_user WHERE admin_login=? AND admin_password=?";
-	public static final String SELECT_SHOW_ALL_RGISTRATION_HAIRCUT = "SELECT * FROM registration_haircut";
+	public static final String SELECT_SHOW_ALL_RGISTRATION_HAIRCUT = "SELECT * FROM registration_haircut ORDER BY haircut_date DESC";
+	public static final String SELECT_SHOW_USER_CABINET = "SELECT u.user_id, u.user_name, u.user_surname, u.user_email, u.user_login, last_haircut.haircut_date FROM user AS u"
+			+ " INNER JOIN registration_haircut AS last_haircut WHERE (u.user_id = ?) = last_haircut.user_id " + "AND last_haircut.haircut_date = (SELECT max(registration_haircut.haircut_date) FROM registration_haircut)";
 }

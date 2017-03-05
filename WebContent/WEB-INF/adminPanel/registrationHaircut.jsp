@@ -52,6 +52,8 @@
 				</div>
 		</header>
 		
+		
+		
 		<main class="container">
 			<div class="title">
 		  		<div>
@@ -103,6 +105,7 @@
 				</c:forEach>
 		  	</table>
 		</main>
+		
 		
 		<footer class="main-footer">
 			<div class="container clearfix">

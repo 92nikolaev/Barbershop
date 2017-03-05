@@ -6,11 +6,12 @@ import java.util.Map;
 import by.nikolaev.ilya.barbershop.command.administration.RegistrationHaircut;
 import by.nikolaev.ilya.barbershop.command.administration.ShowUserList;
 import by.nikolaev.ilya.barbershop.command.administration.SignInAdmin;
-import by.nikolaev.ilya.barbershop.command.implRecord.RecordUser;
-import by.nikolaev.ilya.barbershop.command.implUser.EditProfile;
-import by.nikolaev.ilya.barbershop.command.implUser.Registration;
-import by.nikolaev.ilya.barbershop.command.implUser.SignInUser;
-import by.nikolaev.ilya.barbershop.command.implUser.SignOutUser;
+import by.nikolaev.ilya.barbershop.command.implrecord.RecordUser;
+import by.nikolaev.ilya.barbershop.command.impluser.CabinetUser;
+import by.nikolaev.ilya.barbershop.command.impluser.EditProfile;
+import by.nikolaev.ilya.barbershop.command.impluser.Registration;
+import by.nikolaev.ilya.barbershop.command.impluser.SignInUser;
+import by.nikolaev.ilya.barbershop.command.impluser.SignOutUser;
 import by.nikolaev.ilya.barbershop.command.localization.Localization;
 import by.nikolaev.ilya.barbershop.command.news.AddNews;
 import by.nikolaev.ilya.barbershop.command.news.NewsAddPage;
@@ -40,7 +41,7 @@ public class CommandHelper {
 		commands.put(NameParametr.CMD_ADD_EDIT_USER, new EditProfile());
 		commands.put(NameParametr.CMD_PAGE_ADD_NEWS, new NewsAddPage());
 		commands.put(NameParametr.CMD_REGISTRATION_HAIRCUT, new RegistrationHaircut());
-
+		commands.put(NameParametr.CMD_SHOW_CABINET_USER, new CabinetUser());
 	}
 
 	public Command getCommand(String commandName) {

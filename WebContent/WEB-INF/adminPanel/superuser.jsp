@@ -86,7 +86,7 @@
 					 <tr>
 					 		<td>
 					        		<form action="controller" method="post">			
-										<button class="btn"  type="submit" name="command" value="registration_haircut">Registration for a haircut</button>
+										<button class="btn"  type="submit" name="command" value="registration_haircut">All registration for a haircut</button>
 									</form>
 								</td>
 								<td>

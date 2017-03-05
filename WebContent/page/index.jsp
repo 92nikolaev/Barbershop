@@ -38,7 +38,7 @@
 							<a class="login" href="#">${navigation_signIn}</a>
 						</c:if>
 						<c:if test="${sessionScope.logged == true}">
-							<a class="login1" href="cabinet">
+							<a class="login1" href="controller?command=cabinet">
 								<c:out value="${user.name}"></c:out>
 							</a>
 						</c:if>

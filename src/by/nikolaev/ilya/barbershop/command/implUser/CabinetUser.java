@@ -13,36 +13,33 @@ import by.nikolaev.ilya.barbershop.service.ServiceFactory;
 import by.nikolaev.ilya.barbershop.service.UserService;
 import by.nikolaev.ilya.barbershop.service.exeption.ServiceException;
 
-public class SignInUser implements Command {
+public class CabinetUser implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws CommandNotFoundException {
-		User user = null;
 		String page = null;
 
-		String login = request.getParameter(NameParametr.PRM_USER_LOGIN);
-		String password = request.getParameter(NameParametr.PRM_USER_PASSWORD);
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute(NameParametr.ATR_USER);
+		if (user.getId() != 0) {
+			ServiceFactory serviceFactory = ServiceFactory.getInstance();
+			UserService userService = serviceFactory.getUserService();
 
-		ServiceFactory serviceFactory = ServiceFactory.getInstance();
-		UserService userService = serviceFactory.getUserService();
+			try {
+				user = userService.personalUserData(user);
+				if (user.getId() != 0) {
+					session.setAttribute(NameParametr.ATR_USER, user);
+					page = NamePage.CABINET_PAGE;
+				} else {
+					page = NamePage.ERROR_PAGE;
+				}
 
-		try {
-			user = new User();
-			user.setLogin(login);
-			user.setPassword(password);
-			user = userService.singinUser(user);
-
-			if (user.getId() != 0) {
-				HttpSession session = request.getSession();
-				session.setAttribute(NameParametr.ATR_USER, user);
-				session.setAttribute(NameParametr.ATR_LOGGED_USER, true);
-				page = NamePage.INDEX_PAGE;
-
-			} else {
-				page = NamePage.ERROR_PAGE;
+			} catch (ServiceException e) {
+				throw new CommandNotFoundException();
 			}
-		} catch (ServiceException e) {
-			throw new CommandNotFoundException();
+
+		} else {
+			page = NamePage.ADD_NEWS_PAGE;
 		}
 		return page;
 	}

@@ -9,5 +9,7 @@ public interface UserService {
 
 	User signupUser(User user, String pasword) throws ServiceException;;
 
-	User editProfile(User user, User userTempl) throws ServiceException;;
+	User editProfile(User user, User userTempl) throws ServiceException;
+
+	User personalUserData(User user) throws ServiceException;
 }

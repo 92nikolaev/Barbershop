@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import by.nikolaev.ilya.barbershop.command.Command;
 import by.nikolaev.ilya.barbershop.command.CommandHelper;
 import by.nikolaev.ilya.barbershop.command.NameParametr;
+import by.nikolaev.ilya.barbershop.command.exeption.CommandNotFoundException;
 
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,13 +27,11 @@ public class Controller extends HttpServlet {
 		try {
 			command = commondHelper.getCommand(commandName);
 			page = command.execute(request, response);
-		} catch (Exception e) {
-			System.out.println("tytyt");
-			e.printStackTrace();
-			System.out.println(e);
+		} catch (CommandNotFoundException e) {
+			page = NamePage.ERROR_PAGE;
 		}
 		if (page == null) {
-			page = "/index";
+			page = NamePage.INDEX_PAGE;
 		}
 		request.getRequestDispatcher(page).forward(request, response);
 	}

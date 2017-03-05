@@ -1,4 +1,4 @@
-package by.nikolaev.ilya.barbershop.command.implUser;
+package by.nikolaev.ilya.barbershop.command.impluser;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

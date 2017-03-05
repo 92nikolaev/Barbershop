@@ -78,7 +78,7 @@
 						<li>Фамилия : <span class="cabinet-user-content">${user.surname}</span></li>
 						<li>Email : <span class="cabinet-user-content">${user.email}</span></li>
 						<li>Login : <span class="cabinet-user-content">${user.login}</span></li>
-						<li>Дата полсдедней стрижки : <span class="cabinet-user-content">22-01-2017 </span></li>				
+						<li>Дата полсдедней стрижки : <span class="cabinet-user-content">${user.dataHaircut}</span></li>				
 					</ul>
 					<br>
 					<h2>Настройки Профиля</h2>

@@ -1,4 +1,4 @@
-package by.nikolaev.ilya.barbershop.dao.ConnectionData;
+package by.nikolaev.ilya.barbershop.dao.Connectiondata;
 
 import java.sql.Connection;
 import java.sql.SQLException;

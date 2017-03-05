@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import by.nikolaev.ilya.barbershop.bean.Record;
 import by.nikolaev.ilya.barbershop.dao.RecordDAO;
 import by.nikolaev.ilya.barbershop.dao.SQLCommand;
-import by.nikolaev.ilya.barbershop.dao.ConnectionData.ConnectionDataSource;
+import by.nikolaev.ilya.barbershop.dao.Connectiondata.ConnectionDataSource;
 import by.nikolaev.ilya.barbershop.dao.exception.DAOException;
 
 public class SQLRecordDAO implements RecordDAO {
@@ -21,13 +21,13 @@ public class SQLRecordDAO implements RecordDAO {
 			connection = ConnectionDataSource.getConnection();
 			preparedStatement = connection.prepareStatement(SQLCommand.INSER_RECORD_FOR_HAIRCUT_FROM_USER);
 			preparedStatement.setString(1, record.getName());
-			preparedStatement.setString(2, record.getData());
+			preparedStatement.setDate(2, record.getData());
 			preparedStatement.setString(3, record.getTime());
 			preparedStatement.setString(4, record.getPhone());
 			preparedStatement.setInt(5, record.getUserId());
 			preparedStatement.executeUpdate();
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			throw new DAOException(e);
 		} finally {
 			try {
@@ -35,6 +35,7 @@ public class SQLRecordDAO implements RecordDAO {
 			} catch (SQLException e) {
 				throw new DAOException(e);
 			}
+
 		}
 		return record;
 	}
@@ -49,13 +50,13 @@ public class SQLRecordDAO implements RecordDAO {
 			connection = ConnectionDataSource.getConnection();
 			preparedStatement = connection.prepareStatement(SQLCommand.INSER_RECORD_FOR_HAIRCUT_WITHOUT_USER);
 			preparedStatement.setString(1, record.getName());
-			preparedStatement.setString(2, record.getData());
+			preparedStatement.setDate(2, record.getData());
 			preparedStatement.setString(3, record.getTime());
 			preparedStatement.setString(4, record.getPhone());
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			throw new DAOException(e);
 		} finally {
 			try {
