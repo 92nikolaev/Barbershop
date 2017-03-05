@@ -16,7 +16,7 @@ CREATE TABLE registration_haircut
 (
 haircut_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 client_name VARCHAR(25) NOT NULL,
-haircut_date VARCHAR(25) NOT NULL,
+haircut_date DATE NOT NULL,
 haircut_time VARCHAR(10) NOT NULL,
 client_phone VARCHAR(15),
 user_id INT, 
